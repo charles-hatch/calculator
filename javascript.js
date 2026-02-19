@@ -1,3 +1,10 @@
+//to do
+//refractor code
+// add readme
+// check functionality
+// fix any bugs
+//commit and publish to pagess
+
 const btnAdd = document.getElementById("btn-add");
 const btnSubtract = document.getElementById("btn-subtract");
 const btnDivide = document.getElementById("btn-divide");
@@ -27,7 +34,6 @@ let justEvaluated = false;
 let operatorPressed = false;
 //set our global values
 
-
 const container = document.querySelector(".container");
 const para = document.createElement("p");
 container.appendChild(para);
@@ -40,10 +46,16 @@ function operate(a, b, operator) {
   b = parseFloat(b);
   operatorPressed = true;
   switch (operator) {
-    case "+": return a + b;
-    case "-": return a - b;
-    case "÷": if(b===0){return 0}else return a / b;
-    case "*": return a * b;
+    case "+":
+      return a + b;
+    case "-":
+      return a - b;
+    case "÷":
+      if (b === 0) {
+        return 0;
+      } else return a / b;
+    case "*":
+      return a * b;
     // switch statment used for operands, changing the calculation based on the passed string
   }
 }
@@ -61,52 +73,50 @@ function addNumber(num) {
   calculatorText = document.createTextNode(num);
   para.textContent += num;
   operatorPressed = false;
-
 } //adds number to current input
 
 btnOne.onclick = function () {
   addNumber("1");
-
-}
+};
 
 btnTwo.onclick = function () {
-  addNumber("2")
-}
+  addNumber("2");
+};
 
 btnThree.onclick = function () {
-  addNumber("3")
-}
+  addNumber("3");
+};
 
 btnFour.onclick = function () {
-  addNumber("4")
-}
+  addNumber("4");
+};
 
 btnFive.onclick = function () {
-  addNumber("5")
-}
+  addNumber("5");
+};
 
 btnSix.onclick = function () {
-  addNumber("6")
-}
+  addNumber("6");
+};
 
 btnSeven.onclick = function () {
-  addNumber("7")
-}
+  addNumber("7");
+};
 
 btnEight.onclick = function () {
-  addNumber("8")
-}
+  addNumber("8");
+};
 
 btnNine.onclick = function () {
-  addNumber("9")
-}
+  addNumber("9");
+};
 
 btnZero.onclick = function () {
-  addNumber("0")
-}
+  addNumber("0");
+};
 
 btnAdd.onclick = function () {
-  if(currentInput === "" && storedValue===null){
+  if (currentInput === "" && storedValue === null) {
     return;
   }
   if (currentInput === "" && operatorPressed) {
@@ -116,9 +126,8 @@ btnAdd.onclick = function () {
     return;
   }
   if (storedValue !== null && currentInput !== "") {
-    storedValue = operate(storedValue, currentInput, operator)
-  }
-  else {
+    storedValue = operate(storedValue, currentInput, operator);
+  } else {
     storedValue = parseFloat(currentInput); //store the current input
   }
   currentInput = "";
@@ -126,10 +135,10 @@ btnAdd.onclick = function () {
   calculatorText = document.createTextNode("+");
   para.textContent += " + ";
   operatorPressed = true;
-}
+};
 
 btnSubtract.onclick = function () {
-  if(currentInput === "" && storedValue===null){
+  if (currentInput === "" && storedValue === null) {
     return;
   }
   if (currentInput === "" && operatorPressed) {
@@ -148,10 +157,10 @@ btnSubtract.onclick = function () {
   calculatorText = document.createTextNode("-");
   para.textContent += " - ";
   operatorPressed = true;
-}
+};
 
 btnMultiply.onclick = function () {
-  if(currentInput === "" && storedValue===null){
+  if (currentInput === "" && storedValue === null) {
     return;
   }
   if (currentInput === "" && operatorPressed) {
@@ -170,10 +179,10 @@ btnMultiply.onclick = function () {
   calculatorText = document.createTextNode("x");
   para.textContent += " x ";
   operatorPressed = true;
-}
+};
 
 btnDivide.onclick = function () {
-  if(currentInput === "" && storedValue === null){
+  if (currentInput === "" && storedValue === null) {
     return;
   }
   if (currentInput === "" && operatorPressed) {
@@ -192,10 +201,11 @@ btnDivide.onclick = function () {
   calculatorText = document.createTextNode("÷");
   para.textContent += " ÷ ";
   operatorPressed = true;
-}
+};
 
 btnSum.onclick = function () {
-  if (storedValue !== null && operator && currentInput !== "") { //if we have a stored value, operator, and current input, perform the operate function
+  if (storedValue !== null && operator && currentInput !== "") {
+    //if we have a stored value, operator, and current input, perform the operate function
     const result = operate(storedValue, currentInput, operator);
     storedValue = null;
     operator = null;
@@ -203,14 +213,12 @@ btnSum.onclick = function () {
     calculatorText = document.createTextNode("=");
     if (Number.isInteger(result)) {
       para.textContent = result;
-    } 
-    else {
+    } else {
       para.textContent = result.toFixed(6).replace(/\.?0+$/, ""); //set our decimal place limit and remove any extra 0s
     }
     justEvaluated = true;
-
   }
-}
+};
 
 btnClear.onclick = function () {
   currentInput = "";
@@ -218,17 +226,19 @@ btnClear.onclick = function () {
   operator = null;
   para.textContent = "";
   operatorPressed = false;
-}
+};
 
-btnDecimal.onclick = function () {addNumber(".")}
+btnDecimal.onclick = function () {
+  addNumber(".");
+};
 
 btnPlusMinus.onclick = function () {
   currentInput = currentInput * -1;
   para.textContent = currentInput;
-}
+};
 
 btnBackspace.onclick = function () {
-  if(justEvaluated){
+  if (justEvaluated) {
     return;
   }
   if (currentInput.length > 0) {
@@ -237,4 +247,4 @@ btnBackspace.onclick = function () {
     para.textContent = text.slice(0, text.length - 1);
   }
   //delete last character of our current input, then do the same for display and reset it.
-}
+};
