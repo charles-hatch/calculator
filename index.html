@@ -1,42 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Everyway Calculator</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-
-<body>
+  <body>
     <div class="buttons" id="calculator-background">
-        <div id="row-zero">
-            Super Everway Calculator 5000
-        </div>
-        <div class="container" id="calculator-screen">
-        </div>
-        <button id="btn-7">7</button>
-        <button id="btn-8">8</button>
-        <button id="btn-9">9</button>
-        <button id="btn-divide" class="btn-operands">÷</button>
-        <button id="btn-4">4</button>
-        <button id="btn-5">5</button>
-        <button id="btn-6">6</button>
-        <button id="btn-multiply" class="btn-operands">x</button>
-        <button id="btn-3">3</button>
-        <button id="btn-2">2</button>
-        <button id="btn-1">1</button>
-        <button id="btn-subtract" class="btn-operands">-</button>
-        <button id="btn-backspace" class="btn-operands">←</button>
-        <button id="btn-zero">0</button>
-        <button id="btn-plus-minus" class="btn-operands">+/-</button>
-        <button id="btn-add" class="btn-operands tall-btn">+</button>
-        <button id="btn-clear" class="btn-operands">CLR</button>
-        <button id="btn-decimal">.</button>
-        <button id="btn-sum" class="btn-operands">=</button>
+      <div id="row-zero">Super Calculator 5000</div>
+
+      <div class="container" id="calculator-screen">
+        <p class="right-align" id="display"></p>
+      </div>
+
+      <button id="btn-7" data-type="number" data-value="7">7</button>
+      <button id="btn-8" data-type="number" data-value="8">8</button>
+      <button id="btn-9" data-type="number" data-value="9">9</button>
+      <button
+        id="btn-divide"
+        class="btn-operands"
+        data-type="operator"
+        data-value="÷"
+      >
+        ÷
+      </button>
+
+      <button id="btn-4" data-type="number" data-value="4">4</button>
+      <button id="btn-5" data-type="number" data-value="5">5</button>
+      <button id="btn-6" data-type="number" data-value="6">6</button>
+      <button
+        id="btn-multiply"
+        class="btn-operands"
+        data-type="operator"
+        data-value="*"
+      >
+        x
+      </button>
+
+      <button id="btn-3" data-type="number" data-value="3">3</button>
+      <button id="btn-2" data-type="number" data-value="2">2</button>
+      <button id="btn-1" data-type="number" data-value="1">1</button>
+      <button
+        id="btn-subtract"
+        class="btn-operands"
+        data-type="operator"
+        data-value="-"
+      >
+        -
+      </button>
+
+      <button id="btn-backspace" class="btn-operands" data-type="backspace">
+        ←
+      </button>
+      <button id="btn-zero" data-type="number" data-value="0">0</button>
+      <button id="btn-plus-minus" class="btn-operands" data-type="plusminus">
+        +/-
+      </button>
+      <button
+        id="btn-add"
+        class="btn-operands tall-btn"
+        data-type="operator"
+        data-value="+"
+      >
+        +
+      </button>
+
+      <button id="btn-clear" class="btn-operands" data-type="clear">CLR</button>
+      <button id="btn-decimal" data-type="decimal" data-value=".">.</button>
+      <button id="btn-sum" class="btn-operands" data-type="equals">=</button>
     </div>
-
     <script src="javascript.js"></script>
-</body>
-
+  </body>
 </html>
